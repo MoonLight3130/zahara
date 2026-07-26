@@ -1,0 +1,47 @@
+import { FiCheck } from 'react-icons/fi'
+import { WHY_CHOOSE } from '../../data/products'
+import AnimateOnScroll from '../AnimateOnScroll'
+
+const WhyChoose = () => (
+  <section className="section-padding bg-charcoal">
+    <div className="max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <AnimateOnScroll variant="slideLeft">
+          <p className="text-gold tracking-[0.3em] uppercase text-sm mb-3">Our Promise</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Zahara</h2>
+          <p className="text-white/60 leading-relaxed mb-8">
+            We bring the finest jewellery collections to your doorstep, making luxury accessible for every celebration without the commitment of purchase.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {WHY_CHOOSE.map((item, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full border border-gold/40 flex items-center justify-center shrink-0">
+                  <FiCheck className="text-gold" size={14} />
+                </div>
+                <span className="text-white/80 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll variant="slideRight">
+          <div className="relative rounded-2xl overflow-hidden luxury-shadow">
+            <img
+              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80"
+              alt="Luxury jewellery"
+              className="w-full h-[400px] md:h-[500px] object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-gold text-sm tracking-widest uppercase mb-2">Since 2020</p>
+              <p className="text-2xl font-[family-name:var(--font-heading)] font-bold">Trusted by 10,000+ Happy Clients</p>
+            </div>
+          </div>
+        </AnimateOnScroll>
+      </div>
+    </div>
+  </section>
+)
+
+export default WhyChoose
