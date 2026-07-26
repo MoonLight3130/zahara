@@ -15,6 +15,9 @@ import BookingSuccess from './pages/Checkout/BookingSuccess'
 import Bookings from './pages/Bookings/Bookings'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
+import ForgotPassword from './pages/ForgotPassword'
+import OTPVerification from './pages/OTPVerification'
+import ResetPassword from './pages/ResetPassword'
 import Profile from './pages/Profile/Profile'
 import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
@@ -26,6 +29,13 @@ import AdminLayout, { AdminDashboard, AdminProducts, AdminPlaceholder } from './
 const AnimatedRoutes = () => {
   const location = useLocation()
   const isAdmin = location.pathname.startsWith('/admin')
+  const isAuthPage = [
+    '/login',
+    '/register',
+    '/forgot-password',
+    '/otp-verification',
+    '/reset-password',
+  ].includes(location.pathname)
 
   if (isAdmin) {
     return (
@@ -44,6 +54,20 @@ const AnimatedRoutes = () => {
     )
   }
 
+  if (isAuthPage) {
+    return (
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/otp-verification" element={<OTPVerification />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+        </Routes>
+      </AnimatePresence>
+    )
+  }
+
   return (
     <Layout>
       <AnimatePresence mode="wait">
@@ -56,8 +80,6 @@ const AnimatedRoutes = () => {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/booking-success" element={<BookingSuccess />} />
           <Route path="/bookings" element={<Bookings />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -79,9 +101,12 @@ const App = () => (
           position="top-right"
           toastOptions={{
             style: {
-              background: '#0F0F0F',
+              background: '#111111',
               color: '#fff',
-              border: '1px solid rgba(212, 175, 55, 0.3)',
+              border: '1px solid rgba(212, 175, 55, 0.4)',
+              borderRadius: '12px',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '13px',
             },
             success: { iconTheme: { primary: '#D4AF37', secondary: '#000' } },
           }}
