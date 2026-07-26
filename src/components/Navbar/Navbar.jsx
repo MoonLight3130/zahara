@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { cartItems, wishlist } = useCart()
-  const { isAuthenticated, user } = useAuth()
+  const { user } = useAuth()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -78,22 +78,14 @@ const Navbar = () => {
             )}
           </Link>
 
-          {isAuthenticated ? (
-            <Link
-              to="/profile"
-              className="hidden md:flex items-center gap-2 px-4 py-2 border border-gold/30 rounded-full text-sm text-gold hover:bg-gold/10 transition-all"
-            >
-              <FiUser size={16} />
-              {user?.name?.split(' ')[0]}
-            </Link>
-          ) : (
-            <Link
-              to="/login"
-              className="hidden md:block px-5 py-2 gold-gradient text-black text-sm font-semibold rounded-full hover:opacity-90 transition-opacity luxury-shadow"
-            >
-              Login
-            </Link>
-          )}
+          <Link
+            to="/profile"
+            className="flex items-center gap-2 px-4 py-2 border border-gold/30 rounded-full text-sm text-gold hover:bg-gold/10 transition-all"
+            aria-label="Profile"
+          >
+            <FiUser size={16} />
+            <span className="hidden sm:inline">{user?.name?.split(' ')[0] || 'Profile'}</span>
+          </Link>
 
           <button
             type="button"
@@ -126,11 +118,11 @@ const Navbar = () => {
           ))}
           <li>
             <Link
-              to={isAuthenticated ? '/profile' : '/login'}
+              to="/profile"
               onClick={() => setIsOpen(false)}
               className="inline-block px-6 py-2 gold-gradient text-black font-semibold rounded-full"
             >
-              {isAuthenticated ? 'My Profile' : 'Login'}
+              My Profile
             </Link>
           </li>
         </ul>

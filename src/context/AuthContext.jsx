@@ -1,62 +1,35 @@
 import { createContext, useContext, useState, useCallback } from 'react'
 import toast from 'react-hot-toast'
-import { authService } from '../services/api'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { STORAGE_KEYS } from '../utils/helpers'
+
+const DEFAULT_USER = {
+  id: '1',
+  name: 'Valued Client',
+  email: 'client@zahara.com',
+  role: 'user',
+}
 
 const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useLocalStorage(STORAGE_KEYS.USER, null)
-  const [loading, setLoading] = useState(false)
-
-  const login = useCallback(async (email, password) => {
-    setLoading(true)
-    try {
-      const data = await authService.login(email, password)
-      setUser(data)
-      toast.success(`Welcome back, ${data.name}!`)
-      return data
-    } catch (err) {
-      toast.error(err.message || 'Login failed')
-      throw err
-    } finally {
-      setLoading(false)
-    }
-  }, [setUser])
-
-  const register = useCallback(async (formData) => {
-    setLoading(true)
-    try {
-      const data = await authService.register(formData)
-      setUser(data)
-      toast.success('Account created successfully!')
-      return data
-    } catch (err) {
-      toast.error(err.message || 'Registration failed')
-      throw err
-    } finally {
-      setLoading(false)
-    }
-  }, [setUser])
+  const [user, setUser] = useLocalStorage(STORAGE_KEYS.USER, DEFAULT_USER)
 
   const logout = useCallback(() => {
-    setUser(null)
-    toast.success('Logged out successfully')
+    setUser(DEFAULT_USER)
+    toast.success('Session reset')
   }, [setUser])
 
   const updateProfile = useCallback((updates) => {
-    setUser((prev) => ({ ...prev, ...updates }))
+    setUser((prev) => ({ ...(prev || DEFAULT_USER), ...updates }))
     toast.success('Profile updated')
   }, [setUser])
 
   const value = {
-    user,
-    isAuthenticated: !!user,
+    user: user || DEFAULT_USER,
+    isAuthenticated: true,
     isAdmin: user?.role === 'admin',
-    loading,
-    login,
-    register,
+    loading: false,
     logout,
     updateProfile,
   }
