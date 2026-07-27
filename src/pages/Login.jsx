@@ -97,10 +97,10 @@ const Login = () => {
 
         {/* Remember Me & Forgot Password */}
         <div className="flex items-center justify-between py-1 mb-4 text-xs">
-          <label className="flex items-center gap-2 text-stone-600 cursor-pointer select-none">
+          <label className="flex items-center gap-2 text-white/50 cursor-pointer select-none">
             <input
               type="checkbox"
-              className="w-4 h-4 rounded border-stone-300 text-[#D4AF37] focus:ring-[#D4AF37]/30 accent-[#D4AF37]"
+              className="w-4 h-4 rounded border-white/20 text-[#D4AF37] focus:ring-[#D4AF37]/30 accent-[#D4AF37]"
               {...register('rememberMe')}
             />
             <span>Remember Me</span>
@@ -108,7 +108,7 @@ const Login = () => {
 
           <Link
             to="/forgot-password"
-            className="font-medium text-[#C49A3A] hover:text-[#111111] hover:underline transition-colors"
+            className="font-medium text-[#D4AF37] hover:text-white hover:underline transition-colors"
           >
             Forgot Password?
           </Link>
@@ -128,9 +128,9 @@ const Login = () => {
       />
 
       {/* Bottom Link to Register */}
-      <p className="text-center text-xs text-stone-500 mt-6">
+        <p className="text-center text-xs text-white/40 mt-6">
         Don&apos;t have an account?{' '}
-        <Link to="/register" className="font-semibold text-[#111111] hover:text-[#C49A3A] underline transition-colors">
+          <Link to="/register" className="font-semibold text-[#D4AF37] hover:text-white underline transition-colors">
           Register
         </Link>
       </p>

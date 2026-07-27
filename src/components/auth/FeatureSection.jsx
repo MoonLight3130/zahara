@@ -9,16 +9,16 @@ const FEATURES = [
 
 const FeatureSection = () => {
   return (
-    <div className="mt-8 pt-6 border-t border-stone-200/80">
+    <div className="mt-8 pt-6 border-t border-white/10">
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
         {FEATURES.map((item, idx) => {
           const Icon = item.icon
           return (
             <div key={idx} className="flex flex-col items-center group">
-              <div className="p-2.5 rounded-full bg-[#FAF7F2] border border-[#D4AF37]/30 text-[#C49A3A] group-hover:bg-[#111111] group-hover:text-[#D4AF37] transition-all duration-300 mb-1.5 shadow-sm">
+              <div className="p-2.5 rounded-full bg-white/5 border border-[#D4AF37]/30 text-[#C49A3A] group-hover:bg-[#D4AF37]/20 group-hover:text-[#D4AF37] transition-all duration-300 mb-1.5">
                 <Icon size={16} />
               </div>
-              <span className="text-[11px] font-medium text-stone-600 tracking-tight leading-tight">
+              <span className="text-[11px] font-medium text-white/50 tracking-tight leading-tight">
                 {item.title}
               </span>
             </div>

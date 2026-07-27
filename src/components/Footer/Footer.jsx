@@ -64,7 +64,7 @@ const Footer = () => (
             </li>
           </ul>
           <div className="flex gap-4 mt-6">
-            {[FiInstagram, FiFacebook, FiLinkedin].map((Icon, i) => (
+            {[FiInstagram,FiFacebook,FiPhone].map((Icon, i) => (
               <a
                 key={i}
                 href="#"

@@ -156,19 +156,19 @@ const Register = () => {
 
         {/* Terms & Conditions Checkbox */}
         <div className="py-2">
-          <label className="flex items-start gap-2.5 text-xs text-stone-600 cursor-pointer select-none">
+          <label className="flex items-start gap-2.5 text-xs text-white/50 cursor-pointer select-none">
             <input
               type="checkbox"
-              className="mt-0.5 w-4 h-4 rounded border-stone-300 text-[#D4AF37] focus:ring-[#D4AF37]/30 accent-[#D4AF37]"
+              className="mt-0.5 w-4 h-4 rounded border-white/20 text-[#D4AF37] focus:ring-[#D4AF37]/30 accent-[#D4AF37]"
               {...register('agreeTerms')}
             />
             <span>
               I agree to the{' '}
-              <Link to="/terms" target="_blank" className="font-semibold text-[#111111] hover:text-[#C49A3A] underline">
+              <Link to="/terms" target="_blank" className="font-semibold text-[#D4AF37] hover:text-white underline">
                 Terms & Conditions
               </Link>{' '}
               and{' '}
-              <Link to="/privacy" target="_blank" className="font-semibold text-[#111111] hover:text-[#C49A3A] underline">
+              <Link to="/privacy" target="_blank" className="font-semibold text-[#D4AF37] hover:text-white underline">
                 Privacy Policy
               </Link>
             </span>
@@ -194,9 +194,9 @@ const Register = () => {
       />
 
       {/* Bottom Link to Login */}
-      <p className="text-center text-xs text-stone-500 mt-6">
+      <p className="text-center text-xs text-white/40 mt-6">
         Already have an account?{' '}
-        <Link to="/login" className="font-semibold text-[#111111] hover:text-[#C49A3A] underline transition-colors">
+        <Link to="/login" className="font-semibold text-[#D4AF37] hover:text-white underline transition-colors">
           Sign In
         </Link>
       </p>

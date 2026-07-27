@@ -23,24 +23,28 @@ const Profile = () => {
   }
 
   const tabs = [
-    { icon: FiUser, label: 'Profile Details', content: (
-      <div className="space-y-4">
-        <input defaultValue={user.name} onBlur={(e) => updateProfile({ name: e.target.value })} className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-xl" placeholder="Name" />
-        <input defaultValue={user.email} readOnly className="w-full px-4 py-3 bg-black/30 border border-white/5 rounded-xl text-white/50" />
-      </div>
-    )},
+    {
+      icon: FiUser, label: 'Profile Details', content: (
+        <div className="space-y-4">
+          <input defaultValue={user.name} onBlur={(e) => updateProfile({ name: e.target.value })} className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-xl" placeholder="Name" />
+          <input defaultValue={user.email} readOnly className="w-full px-4 py-3 bg-black/30 border border-white/5 rounded-xl text-white/50" />
+        </div>
+      )
+    },
     { icon: FiPackage, label: 'Booking History', link: '/bookings', count: bookings.length },
     { icon: FiHeart, label: 'Wishlist', link: '/wishlist', count: wishlist.length },
-    { icon: FiMapPin, label: 'Saved Address', content: (
-      <div>
-        <textarea
-          placeholder="Add your default delivery address"
-          className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-xl h-24 resize-none"
-          onBlur={(e) => e.target.value && setAddresses([e.target.value])}
-          defaultValue={addresses[0] || ''}
-        />
-      </div>
-    )},
+    {
+      icon: FiMapPin, label: 'Saved Address', content: (
+        <div>
+          <textarea
+            placeholder="Add your default delivery address"
+            className="w-full px-4 py-3 bg-black/50 border border-white/10 rounded-xl h-24 resize-none"
+            onBlur={(e) => e.target.value && setAddresses([e.target.value])}
+            defaultValue={addresses[0] || ''}
+          />
+        </div>
+      )
+    },
   ]
 
   return (

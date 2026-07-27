@@ -23,7 +23,7 @@ const AuthHeader = ({ title, subtitle, description }) => {
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#111111]"
+        className="font-[family-name:var(--font-heading)] text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white"
       >
         {title}
       </motion.h1>
@@ -34,7 +34,7 @@ const AuthHeader = ({ title, subtitle, description }) => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xs sm:text-sm font-semibold tracking-wider text-[#C49A3A] uppercase mt-1"
+          className="text-xs sm:text-sm font-semibold tracking-wider text-[#D4AF37] uppercase mt-1"
         >
           {subtitle}
         </motion.p>
@@ -46,7 +46,7 @@ const AuthHeader = ({ title, subtitle, description }) => {
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-stone-500 text-xs sm:text-sm mt-2 max-w-sm mx-auto leading-relaxed"
+          className="text-white/50 text-xs sm:text-sm mt-2 max-w-sm mx-auto leading-relaxed"
         >
           {description}
         </motion.p>

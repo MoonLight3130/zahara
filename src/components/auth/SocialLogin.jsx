@@ -8,8 +8,8 @@ const SocialLogin = ({ onGoogle, onApple, onPhone }) => {
     <div className="mt-6">
       {/* Divider */}
       <div className="relative flex items-center justify-center mb-6">
-        <div className="w-full border-t border-stone-200"></div>
-        <span className="absolute bg-[#FAF7F2] px-3 text-xs font-semibold uppercase tracking-widest text-stone-400">
+        <div className="w-full border-t border-white/10"></div>
+        <span className="absolute bg-[#1A1A1A] px-3 text-xs font-semibold uppercase tracking-widest text-white/30">
           OR
         </span>
       </div>
@@ -21,7 +21,7 @@ const SocialLogin = ({ onGoogle, onApple, onPhone }) => {
           whileTap={{ scale: 0.97 }}
           type="button"
           onClick={onGoogle}
-          className="flex items-center justify-center gap-2 py-3 px-3 bg-white border border-stone-200 rounded-xl text-stone-700 text-xs font-medium hover:border-[#D4AF37] hover:shadow-md transition-all duration-300 group"
+          className="flex items-center justify-center gap-2 py-3 px-3 bg-white/5 border border-white/10 rounded-xl text-white/70 text-xs font-medium hover:border-[#D4AF37]/60 hover:text-[#D4AF37] transition-all duration-300 group"
           title="Continue with Google"
         >
           <FcGoogle size={18} />
@@ -33,7 +33,7 @@ const SocialLogin = ({ onGoogle, onApple, onPhone }) => {
           whileTap={{ scale: 0.97 }}
           type="button"
           onClick={onApple}
-          className="flex items-center justify-center gap-2 py-3 px-3 bg-white border border-stone-200 rounded-xl text-stone-700 text-xs font-medium hover:border-[#D4AF37] hover:shadow-md transition-all duration-300 group"
+          className="flex items-center justify-center gap-2 py-3 px-3 bg-white/5 border border-white/10 rounded-xl text-white/70 text-xs font-medium hover:border-[#D4AF37]/60 hover:text-[#D4AF37] transition-all duration-300 group"
           title="Continue with Apple"
         >
           <FaApple size={18} className="text-black" />
@@ -45,7 +45,7 @@ const SocialLogin = ({ onGoogle, onApple, onPhone }) => {
           whileTap={{ scale: 0.97 }}
           type="button"
           onClick={onPhone}
-          className="flex items-center justify-center gap-2 py-3 px-3 bg-white border border-stone-200 rounded-xl text-stone-700 text-xs font-medium hover:border-[#D4AF37] hover:shadow-md transition-all duration-300 group"
+          className="flex items-center justify-center gap-2 py-3 px-3 bg-white/5 border border-white/10 rounded-xl text-white/70 text-xs font-medium hover:border-[#D4AF37]/60 hover:text-[#D4AF37] transition-all duration-300 group"
           title="Continue with Phone"
         >
           <FiPhone size={18} className="text-[#C49A3A]" />

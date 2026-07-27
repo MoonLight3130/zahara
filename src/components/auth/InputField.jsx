@@ -5,7 +5,7 @@ const InputField = forwardRef(
     return (
       <div className="w-full text-left mb-4">
         {label && (
-          <label className="block text-xs font-semibold text-[#111111] uppercase tracking-wider mb-1.5">
+          <label className="block text-xs font-semibold text-white/60 uppercase tracking-wider mb-1.5">
             {label}
           </label>
         )}
@@ -21,11 +21,11 @@ const InputField = forwardRef(
             placeholder={placeholder}
             className={`w-full ${
               Icon ? 'pl-11' : 'pl-4'
-            } pr-4 py-3.5 bg-white text-[#111111] text-sm rounded-xl border ${
+            } pr-4 py-3.5 bg-white/5 text-white text-sm rounded-xl border ${
               error
                 ? 'border-red-500 focus:ring-2 focus:ring-red-500/20'
-                : 'border-stone-200 focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20'
-            } shadow-sm transition-all duration-300 outline-none placeholder:text-stone-400 ${className}`}
+                : 'border-white/10 focus:border-[#D4AF37]/60 focus:ring-2 focus:ring-[#D4AF37]/20'
+            } transition-all duration-300 outline-none placeholder:text-white/30 ${className}`}
             {...props}
           />
         </div>

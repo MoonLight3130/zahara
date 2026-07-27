@@ -1,20 +1,17 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import toast from 'react-hot-toast'
+import { Link } from 'react-router-dom'
+import { FaWhatsapp } from 'react-icons/fa'
 import SEO from '../../components/SEO'
 import AnimateOnScroll from '../../components/AnimateOnScroll'
 import { useCart } from '../../context/CartContext'
 import { useAuth } from '../../context/AuthContext'
-import { useLocalStorage } from '../../hooks/useLocalStorage'
-import { formatPrice, generateBookingId, STORAGE_KEYS } from '../../utils/helpers'
-import { bookingService } from '../../services/api'
+import { formatPrice } from '../../utils/helpers'
+
+const WHATSAPP_NUMBER = '919747133559'
 
 const Checkout = () => {
-  const navigate = useNavigate()
-  const { cartItems, cartSummary, clearCart } = useCart()
-  const { isAuthenticated, user } = useAuth()
-  const [, setBookings] = useLocalStorage(STORAGE_KEYS.BOOKINGS, [])
-  const [loading, setLoading] = useState(false)
+  const { cartItems, cartSummary } = useCart()
+  const { user } = useAuth()
   const [form, setForm] = useState({
     name: user?.name || '',
     email: user?.email || '',
@@ -22,45 +19,31 @@ const Checkout = () => {
     address: '',
     city: '',
     pincode: '',
-    payment: 'card',
   })
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  const handleSubmit = async (e) => {
+  const handleWhatsAppEnquiry = (e) => {
     e.preventDefault()
-    if (!isAuthenticated) {
-      toast.error('Please login to complete booking')
-      navigate('/login')
-      return
-    }
-    if (cartItems.length === 0) {
-      toast.error('Your cart is empty')
-      return
-    }
-
-    setLoading(true)
-    try {
-      const booking = {
-        id: generateBookingId(),
-        items: cartItems,
-        ...form,
-        subtotal: cartSummary.subtotal,
-        deposit: cartSummary.deposit,
-        total: cartSummary.total,
-        status: 'confirmed',
-        createdAt: new Date().toISOString(),
-      }
-      await bookingService.createBooking(booking)
-      setBookings((prev) => [booking, ...prev])
-      clearCart()
-      toast.success('Booking confirmed!')
-      navigate('/booking-success', { state: { bookingId: booking.id } })
-    } catch {
-      toast.error('Booking failed. Please try again.')
-    } finally {
-      setLoading(false)
-    }
+    const itemsList = cartItems
+      .map((item) => `• ${item.name} (${item.size}) x${item.quantity} — ${formatPrice(item.price)}`)
+      .join('\n')
+    const message =
+      `Hello Zahara! I would like to enquire about renting the following items:\n\n` +
+      `${itemsList}\n\n` +
+      `*Order Summary*\n` +
+      `Rental Total: ${formatPrice(cartSummary.subtotal)}\n` +
+      `Security Deposit: ${formatPrice(cartSummary.deposit)}\n` +
+      `Grand Total: ${formatPrice(cartSummary.total)}\n\n` +
+      `*My Details*\n` +
+      `Name: ${form.name || 'Not provided'}\n` +
+      `Email: ${form.email || 'Not provided'}\n` +
+      `Phone: ${form.phone || 'Not provided'}\n` +
+      `City: ${form.city || 'Not provided'}\n` +
+      `Address: ${form.address || 'Not provided'}\n\n` +
+      `Please confirm availability and next steps. Thank you!`
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+    window.open(url, '_blank')
   }
 
   if (cartItems.length === 0) {
@@ -81,7 +64,7 @@ const Checkout = () => {
             <h1 className="text-4xl font-bold">Checkout</h1>
           </AnimateOnScroll>
 
-          <form onSubmit={handleSubmit} className="grid lg:grid-cols-3 gap-8">
+          <form onSubmit={handleWhatsAppEnquiry} className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2 space-y-6">
               <div className="glass-card rounded-2xl p-6">
                 <h2 className="text-xl font-semibold text-gold mb-6">Delivery Address</h2>
@@ -110,23 +93,20 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <div className="glass-card rounded-2xl p-6">
-                <h2 className="text-xl font-semibold text-gold mb-6">Payment Method</h2>
-                <div className="space-y-3">
-                  {['card', 'upi', 'cod'].map((method) => (
-                    <label key={method} className="flex items-center gap-3 p-4 border border-white/10 rounded-xl cursor-pointer hover:border-gold/30 transition-colors">
-                      <input
-                        type="radio"
-                        name="payment"
-                        value={method}
-                        checked={form.payment === method}
-                        onChange={handleChange}
-                        className="accent-gold"
-                      />
-                      <span className="uppercase">{method === 'cod' ? 'Cash on Delivery' : method}</span>
-                    </label>
-                  ))}
+              <div className="glass-card rounded-2xl p-6 border border-green-500/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <FaWhatsapp className="text-green-400" size={22} />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-white">WhatsApp Enquiry</h2>
+                    <p className="text-sm text-white/50">We'll confirm your booking via WhatsApp</p>
+                  </div>
                 </div>
+                <p className="text-white/60 text-sm leading-relaxed">
+                  After submitting, you'll be redirected to WhatsApp with your order details pre-filled.
+                  Our team will confirm availability and guide you through the rental process.
+                </p>
               </div>
             </div>
 
@@ -147,13 +127,13 @@ const Checkout = () => {
               </div>
               <button
                 type="submit"
-                disabled={loading}
-                className="w-full mt-6 py-4 gold-gradient text-black font-semibold rounded-2xl hover:opacity-90 disabled:opacity-50 transition-opacity"
+                className="w-full mt-6 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-2xl transition-colors flex items-center justify-center gap-2 luxury-shadow"
               >
-                {loading ? 'Processing...' : 'Place Booking'}
+                <FaWhatsapp size={20} /> Enquire on WhatsApp
               </button>
             </div>
           </form>
+          <p className="text-center text-white/30 text-xs mt-4">Your details will only be shared via WhatsApp with our team.</p>
         </div>
       </div>
     </>

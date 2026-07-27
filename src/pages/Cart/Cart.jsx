@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { FiTrash2, FiTag } from 'react-icons/fi'
+import { FaWhatsapp } from 'react-icons/fa'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import SEO from '../../components/SEO'
@@ -23,6 +24,24 @@ const Cart = () => {
   }
 
   const finalTotal = cartSummary.subtotal - discount + cartSummary.deposit
+
+  const handleWhatsAppEnquiry = () => {
+    if (cartItems.length === 0) return
+    const itemsList = cartItems
+      .map((item) => `• ${item.name} (${item.size}) x${item.quantity} — ${formatPrice(calculateRentalTotal(item.price, item.duration, item.quantity))}`)
+      .join('\n')
+    const message =
+      `Hello Zahara! I would like to enquire about renting the following items:\n\n` +
+      `${itemsList}\n\n` +
+      `*Order Summary*\n` +
+      `Rental Total: ${formatPrice(cartSummary.subtotal)}\n` +
+      `Security Deposit: ${formatPrice(cartSummary.deposit)}\n` +
+      (discount > 0 ? `Discount: -${formatPrice(discount)}\n` : '') +
+      `Grand Total: ${formatPrice(finalTotal)}\n\n` +
+      `Please confirm availability and next steps. Thank you!`
+    const url = `https://wa.me/919747133559?text=${encodeURIComponent(message)}`
+    window.open(url, '_blank')
+  }
 
   return (
     <>
@@ -95,12 +114,14 @@ const Cart = () => {
                   </div>
                   <p className="text-xs text-white/30 mt-2">Try: ZAHARA10 for 10% off</p>
 
-                  <Link
-                    to="/checkout"
-                    className="block w-full mt-6 py-4 gold-gradient text-black font-semibold rounded-2xl text-center hover:opacity-90 transition-opacity"
+                  <button
+                    type="button"
+                    onClick={handleWhatsAppEnquiry}
+                    className="flex w-full mt-6 py-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-2xl text-center items-center justify-center gap-2 transition-colors luxury-shadow"
                   >
-                    Proceed to Checkout
-                  </Link>
+                    <FaWhatsapp size={20} /> Enquire on WhatsApp
+                  </button>
+                  <p className="text-center text-white/30 text-xs mt-3">We'll confirm your booking via WhatsApp</p>
                 </div>
               </AnimateOnScroll>
             </div>
