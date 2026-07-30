@@ -14,7 +14,12 @@ const Hero = () => (
     <Swiper
       modules={[Autoplay, EffectFade, Pagination, Navigation]}
       effect="fade"
-      autoplay={{ delay: 5000, disableOnInteraction: false }}
+      speed={1200}
+      autoplay={{
+        delay: 30000, // Video duration
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      }}
       pagination={{ clickable: true }}
       navigation
       loop
@@ -22,14 +27,59 @@ const Hero = () => (
     >
       {HERO_SLIDES.map((slide, i) => (
         <SwiperSlide key={i}>
-          <div className="relative h-full w-full">
-            <LazyImage
-              src={slide.image}
-              alt={slide.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+          <div className="relative h-full w-full overflow-hidden">
+
+            {slide.type === "video" ? (
+              <div className="absolute inset-0">
+
+                {/* Desktop Video */}
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute
+top-1/2
+left-1/2
+-translate-x-1/2
+-translate-y-1/2
+
+w-auto
+h-full
+object-cover
+
+md:min-w-full
+md:min-h-full
+md:h-auto
+md:w-auto
+md:rotate-[270deg]"
+                >
+                  <source src="/videos/hero-desktop.mp4" type="video/mp4" />
+                </video>
+
+                {/* Mobile Video */}
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="block md:hidden absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src="/videos/hero-mobile.mp4" type="video/mp4" />
+                </video>
+
+              </div>
+            ) : (
+              <LazyImage
+                src={slide.image}
+                alt={slide.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
+
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+
           </div>
         </SwiperSlide>
       ))}

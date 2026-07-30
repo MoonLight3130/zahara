@@ -28,7 +28,7 @@ const Contact = () => {
             <AnimateOnScroll variant="slideLeft">
               <div className="space-y-6">
                 {[
-                  { icon: FiMail, label: 'Email', value: 'hello@zahara.com' },
+                  { icon: FiMail, label: 'Email', value: 'zahararental@gmail.com' },
                   { icon: FiPhone, label: 'Phone', value: '+91 98765 43210' },
                   { icon: FiMapPin, label: 'Address', value: 'Luxury Plaza, Bandra West, Mumbai 400050' },
                 ].map((item) => (

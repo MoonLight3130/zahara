@@ -56,7 +56,7 @@ const Footer = () => (
           <ul className="space-y-4">
             <li className="flex items-center gap-3 text-white/60 text-sm">
               <FiMail className="text-gold" />
-              hello@zahara.com
+              zahararentaljewellery@gmail.com
             </li>
             <li className="flex items-center gap-3 text-white/60 text-sm">
               <FiPhone className="text-gold" />
@@ -64,7 +64,7 @@ const Footer = () => (
             </li>
           </ul>
           <div className="flex gap-4 mt-6">
-            {[FiInstagram,FiFacebook,FiPhone].map((Icon, i) => (
+            {[FiInstagram, FiPhone, FiMail].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
@@ -79,10 +79,8 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-white/40 text-sm">&copy; {new Date().getFullYear()} ZAHARA. All rights reserved.</p>
+        <p className="text-white/40 text-sm">&copy; {new Date().getFullYear()} Zahara Rental Jewellery. All Rights Reserved • Designed & Developed by PromptLogix</p>
         <div className="flex gap-6">
-          <Link to="/terms" className="text-white/40 hover:text-gold text-sm transition-colors">Terms</Link>
-          <Link to="/privacy" className="text-white/40 hover:text-gold text-sm transition-colors">Privacy Policy</Link>
         </div>
       </div>
     </div>

@@ -3,14 +3,14 @@ export const IMAGES = {
   hero1: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1920&q=80',
   hero2: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1920&q=80',
   hero3: 'https://images.unsplash.com/photo-1611591437281-460bf8912146?w=1920&q=80',
-  necklace: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',
-  earrings: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80',
-  bridal: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80',
+  necklace: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvhZDc_w1CdhxHhTepWNH74v7qlQswWPaTqade53WwaA&s',
+  earrings: 'https://ksupreme.in/cdn/shop/files/Red-Stone-Jhumka-Earrings.webp?v=1783073271',
+  bridal: 'https://cdn.shopify.com/s/files/1/0232/5737/files/1080X1080_-_Blog_Image-14_480x480.webp?v=1712122400',
   temple: 'https://images.unsplash.com/photo-1617038260897-41a6084a5880?w=600&q=80',
-  bangles: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80',
-  rings: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80',
-  bracelet: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80',
-  maangTikka: 'https://images.unsplash.com/photo-1617038260897-41a6084a5880?w=600&q=80',
+  bangles: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebitCPEtDxrOxJXuGVMebbNq2H9KTwc0V2SnG-Aap4Q&s=10',
+  rings: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkivTzKJ7RHZxJGbQs66Q_v9ocsTCxs4FyKZksYEvmMg&s=10',
+  bracelet: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSglieh0ECe_SclZR4eg7TYNNHW7zK2xsPOXbXQ0vTWAGNSuobvrsLFBU4&s=10https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80',
+  maangTikka: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBELfncygGBgpMQS7idxj_y-LFUNttavkRME1XEiQSYDaaq5GlXbULDtQ&s=10',
   gallery1: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80',
   gallery2: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80',
   gallery3: 'https://images.unsplash.com/photo-1611591437281-460bf8912146?w=800&q=80',
@@ -408,22 +408,33 @@ export const FAQ_DATA = [
 ]
 
 export const GALLERY_IMAGES = [
-  IMAGES.gallery1,
-  IMAGES.gallery2,
-  IMAGES.gallery3,
-  IMAGES.gallery4,
-  IMAGES.gallery5,
-  IMAGES.gallery6,
-  IMAGES.hero1,
-  IMAGES.hero2,
+  "https://res.cloudinary.com/nmrxsjhh/image/upload/f_auto,q_auto/681698900_17869412355611841_1763960844887710419_n_i9ibsp",
+  "https://res.cloudinary.com/nmrxsjhh/image/upload/f_auto,q_auto/Royal_vibes_timeless_beauty_️Premium_rental_outfits_and_traditional_ornaments_available_no_rzmevf",
+  "https://res.cloudinary.com/nmrxsjhh/image/upload/f_auto,q_auto/So_happy_to_be_part_of_your_special_day_Thank_you_for_trusting_us_and_for_choosing_our_ren_uz0imw",
+  "https://res.cloudinary.com/nmrxsjhh/image/upload/f_auto,q_auto/More_than_a_customer_now_part_of_our_family_Thank_you_for_choosing_our_rental_ornaments_for_smxuop",
+
 ]
 
 export const HERO_SLIDES = [
-  { image: IMAGES.hero1, title: 'Timeless Elegance', subtitle: 'Bridal collections for your special day' },
-  { image: IMAGES.hero2, title: 'Modern Luxury', subtitle: 'Statement pieces for every occasion' },
-  { image: IMAGES.hero3, title: 'Heritage Craft', subtitle: 'Temple & traditional jewellery' },
-]
-
+  {
+    type: "video",
+    video: "/videos/hero.mp4",
+    title: "Luxury Jewellery",
+    subtitle: "For Every Occasion",
+  },
+  {
+    type: "image",
+    image: IMAGES.hero1,
+    title: "Modern Luxury",
+    subtitle: "Statement pieces for every occasion",
+  },
+  {
+    type: "image",
+    image: IMAGES.hero3,
+    title: "Heritage Craft",
+    subtitle: "Temple & traditional jewellery",
+  },
+];
 export const ADMIN_STATS = [
   { label: 'Total Revenue', value: '₹12.4L', change: '+12%' },
   { label: 'Active Bookings', value: '48', change: '+8%' },

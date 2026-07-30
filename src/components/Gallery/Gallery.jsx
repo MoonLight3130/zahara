@@ -16,10 +16,9 @@ const Gallery = () => (
             <div className="break-inside-avoid group relative rounded-2xl overflow-hidden">
               <LazyImage
                 src={img}
-                alt={`Gallery ${i + 1}`}
-                className={`w-full object-cover group-hover:scale-105 transition-transform duration-700 ${
-                  i % 3 === 0 ? 'h-72' : i % 3 === 1 ? 'h-56' : 'h-64'
-                }`}
+                alt="Gallery "
+                className={`w-full object-cover group-hover:scale-105 transition-transform duration-700 ${i % 3 === 0 ? 'h-72' : i % 3 === 1 ? 'h-56' : 'h-64'
+                  }`}
               />
               <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/10 transition-colors duration-500" />
             </div>
