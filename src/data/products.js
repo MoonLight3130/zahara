@@ -9,7 +9,7 @@ export const IMAGES = {
   temple: 'https://radhejewellery.in/cdn/shop/files/RJHP-45_1_d5564592-2c06-4d30-88f0-01a15cd854d0_360x.jpg?v=1747928417',
   bangles: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebitCPEtDxrOxJXuGVMebbNq2H9KTwc0V2SnG-Aap4Q&s=10',
   rings: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkivTzKJ7RHZxJGbQs66Q_v9ocsTCxs4FyKZksYEvmMg&s=10',
-  bracelet: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSglieh0ECe_SclZR4eg7TYNNHW7zK2xsPOXbXQ0vTWAGNSuobvrsLFBU4&s=10https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80',
+  bracelet: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSglieh0ECe_SclZR4eg7TYNNHW7zK2xsPOXbXQ0vTWAGNSuobvrsLFBU4&s=10',
   maangTikka: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBELfncygGBgpMQS7idxj_y-LFUNttavkRME1XEiQSYDaaq5GlXbULDtQ&s=10',
   gallery1: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80',
   gallery2: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80',
