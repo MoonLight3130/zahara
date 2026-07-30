@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, EffectFade, Pagination, Navigation } from 'swiper/modules'
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { HERO_SLIDES } from '../../data/products'
@@ -12,7 +12,7 @@ import 'swiper/css/navigation'
 const Hero = () => (
   <section className="relative h-screen min-h-[600px] w-full">
     <Swiper
-      modules={[Autoplay, EffectFade, Pagination, Navigation]}
+      modules={[Autoplay, EffectFade, Pagination]}
       effect="fade"
       speed={1200}
       autoplay={{
