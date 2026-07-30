@@ -16,8 +16,7 @@ const Collections = () => {
     search: '',
     category: searchParams.get('category') || 'all',
     occasion: 'all',
-    priceMin: '',
-    priceMax: '',
+    priceRange: 'all',
     sortBy: searchParams.get('sort') || 'newest',
   })
 
@@ -70,7 +69,7 @@ const Collections = () => {
               <p className="text-white/60 text-lg">No products match your filters.</p>
               <button
                 type="button"
-                onClick={() => setFilters({ search: '', category: 'all', occasion: 'all', priceMin: '', priceMax: '', sortBy: 'newest' })}
+                onClick={() => setFilters({ search: '', category: 'all', occasion: 'all', priceRange: 'all', sortBy: 'newest' })}
                 className="mt-4 text-gold hover:underline"
               >
                 Clear all filters

@@ -57,23 +57,19 @@ const FilterBar = ({ filters, onChange, showMobileToggle, mobileOpen, onToggleMo
           <option value="popularity">Popularity</option>
         </select>
 
-        <div className="flex gap-2 items-center">
-          <input
-            type="number"
-            placeholder="Min ₹"
-            value={filters.priceMin}
-            onChange={(e) => onChange({ ...filters, priceMin: e.target.value })}
-            className="w-24 px-3 py-3 bg-charcoal border border-white/10 rounded-2xl text-white focus:outline-none focus:border-gold/50"
-          />
-          <span className="text-white/40">—</span>
-          <input
-            type="number"
-            placeholder="Max ₹"
-            value={filters.priceMax}
-            onChange={(e) => onChange({ ...filters, priceMax: e.target.value })}
-            className="w-24 px-3 py-3 bg-charcoal border border-white/10 rounded-2xl text-white focus:outline-none focus:border-gold/50"
-          />
-        </div>
+        <select
+          value={filters.priceRange}
+          onChange={(e) => onChange({ ...filters, priceRange: e.target.value })}
+          className="px-4 py-3 bg-charcoal border border-white/10 rounded-2xl text-white focus:outline-none focus:border-gold/50"
+        >
+          <option value="all">All Prices</option>
+          <option value="0-500">₹0 - ₹500</option>
+          <option value="500-1000">₹500 - ₹1,000</option>
+          <option value="1000-2000">₹1,000 - ₹2,000</option>
+          <option value="2000-3000">₹2,000 - ₹3,000</option>
+          <option value="3000-5000">₹3,000 - ₹5,000</option>
+          <option value="5000+">₹5,000+</option>
+        </select>
       </div>
     </div>
   </div>
