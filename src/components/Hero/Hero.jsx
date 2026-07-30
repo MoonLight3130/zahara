@@ -109,12 +109,7 @@ md:rotate-[270deg]"
             >
               Explore Collection
             </Link>
-            <Link
-              to="/#how-it-works"
-              className="px-8 py-3.5 border border-gold/50 text-gold rounded-full hover:bg-gold/10 transition-all"
-            >
-              How It Works
-            </Link>
+
           </div>
         </motion.div>
       </div>

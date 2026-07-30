@@ -6,10 +6,10 @@ export const IMAGES = {
   necklace: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvhZDc_w1CdhxHhTepWNH74v7qlQswWPaTqade53WwaA&s',
   earrings: 'https://ksupreme.in/cdn/shop/files/Red-Stone-Jhumka-Earrings.webp?v=1783073271',
   bridal: 'https://cdn.shopify.com/s/files/1/0232/5737/files/1080X1080_-_Blog_Image-14_480x480.webp?v=1712122400',
-  temple: 'https://images.unsplash.com/photo-1617038260897-41a6084a5880?w=600&q=80',
+  temple: 'https://radhejewellery.in/cdn/shop/files/RJHP-45_1_d5564592-2c06-4d30-88f0-01a15cd854d0_360x.jpg?v=1747928417',
   bangles: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebitCPEtDxrOxJXuGVMebbNq2H9KTwc0V2SnG-Aap4Q&s=10',
   rings: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkivTzKJ7RHZxJGbQs66Q_v9ocsTCxs4FyKZksYEvmMg&s=10',
-  bracelet: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSglieh0ECe_SclZR4eg7TYNNHW7zK2xsPOXbXQ0vTWAGNSuobvrsLFBU4&s=10https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80',
+  bracelet: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSglieh0ECe_SclZR4eg7TYNNHW7zK2xsPOXbXQ0vTWAGNSuobvrsLFBU4&s=10',
   maangTikka: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBELfncygGBgpMQS7idxj_y-LFUNttavkRME1XEiQSYDaaq5GlXbULDtQ&s=10',
   gallery1: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80',
   gallery2: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=80',
@@ -23,7 +23,7 @@ export const CATEGORIES = [
   { id: 'necklaces', name: 'Necklaces', slug: 'necklaces', image: IMAGES.necklace },
   { id: 'earrings', name: 'Earrings', slug: 'earrings', image: IMAGES.earrings },
   { id: 'bridal-sets', name: 'Bridal Sets', slug: 'bridal-sets', image: IMAGES.bridal },
-  { id: 'temple-jewellery', name: 'Temple Jewellery', slug: 'temple-jewellery', image: IMAGES.temple },
+  { id: 'Hip Chain', name: 'Hip Chain', slug: 'Hip ChainS', image: IMAGES.temple },
   { id: 'bangles', name: 'Bangles', slug: 'bangles', image: IMAGES.bangles },
   { id: 'rings', name: 'Rings', slug: 'rings', image: IMAGES.rings },
   { id: 'bracelets', name: 'Bracelets', slug: 'bracelets', image: IMAGES.bracelet },
@@ -378,7 +378,7 @@ export const FEATURES = [
 export const HOW_IT_WORKS = [
   { step: 1, title: 'Browse Jewellery', description: 'Explore our curated collection of premium rental pieces.' },
   { step: 2, title: 'Select Rental Dates', description: 'Pick your dates and duration for a seamless experience.' },
-  { step: 3, title: 'Confirm Booking', description: 'Complete checkout with secure payment and deposit.' },
+  { step: 3, title: 'Confirm Booking', description: 'Complete checkout with secure payment and deposit through Whatsapp.' },
   { step: 4, title: 'Wear & Return', description: 'Shine at your event and return with our easy pickup service.' },
 ]
 

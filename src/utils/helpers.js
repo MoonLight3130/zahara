@@ -102,6 +102,8 @@ export const STORAGE_KEYS = {
   CART: 'zahara_cart',
   WISHLIST: 'zahara_wishlist',
   USER: 'zahara_user',
+  TOKEN: 'zahara_token',
+  USERS: 'zahara_users',
   BOOKINGS: 'zahara_bookings',
   ADDRESSES: 'zahara_addresses',
 }

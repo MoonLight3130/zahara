@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FiMail, FiPhone, FiInstagram, FiFacebook, FiLinkedin } from 'react-icons/fi'
+import { FiMail, FiPhone, FiInstagram, FiFacebook, FiLinkedin, FiMap } from 'react-icons/fi'
 import { CATEGORIES } from '../../data/products'
 
 const Footer = () => (
@@ -60,11 +60,11 @@ const Footer = () => (
             </li>
             <li className="flex items-center gap-3 text-white/60 text-sm">
               <FiPhone className="text-gold" />
-              +91 98765 43210
+              +91 9747133559
             </li>
           </ul>
           <div className="flex gap-4 mt-6">
-            {[FiInstagram, FiPhone, FiMail].map((Icon, i) => (
+            {[FiInstagram, FiMail, FiPhone, FiMap].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
@@ -79,7 +79,8 @@ const Footer = () => (
       </div>
 
       <div className="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-white/40 text-sm">&copy; {new Date().getFullYear()} Zahara Rental Jewellery. All Rights Reserved • Designed & Developed by PromptLogix</p>
+        <p className="text-white/40 text-sm">&copy; {new Date().getFullYear()} Zahara Rental Jewellery. All Rights Reserved.
+          Designed & Developed by PromptLogix.</p>
         <div className="flex gap-6">
         </div>
       </div>

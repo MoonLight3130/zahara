@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -18,32 +18,34 @@ import SEO from '../components/SEO'
 import { useAuth } from '../context/AuthContext'
 
 // Yup Validation Schema for Registration
-const registerSchema = yup.object({
-  name: yup.string().trim().required('Full name is required'),
-  email: yup.string().email('Please enter a valid email address').required('Email is required'),
-  phone: yup
-    .string()
-    .matches(/^[0-[#]?[0-9]{10}$/, 'Phone number must be a valid 10-digit number')
-    .required('Phone number is required'),
-  password: yup
-    .string()
-    .min(8, 'Password must be at least 8 characters')
-    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
-    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
-    .matches(/[0-9]/, 'Password must contain at least one number')
-    .matches(/[^A-Za-z0-9]/, 'Password must contain at least one special character')
-    .required('Password is required'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'Passwords must match')
-    .required('Please confirm your password'),
-  agreeTerms: yup
-    .boolean()
-    .oneOf([true], 'You must agree to the Terms & Conditions'),
-}).required()
+const registerSchema = yup
+  .object({
+    name: yup.string().trim().required('Full name is required'),
+    email: yup.string().email('Please enter a valid email address').required('Email is required'),
+    phone: yup
+      .string()
+      .matches(/^(\+?\d{1,3}[- ]?)?\d{10}$/, 'Phone number must be a valid 10-digit number')
+      .required('Phone number is required'),
+    password: yup
+      .string()
+      .min(8, 'Password must be at least 8 characters')
+      .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+      .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+      .matches(/[0-9]/, 'Password must contain at least one number')
+      .matches(/[^A-Za-z0-9]/, 'Password must contain at least one special character')
+      .required('Password is required'),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref('password'), null], 'Passwords must match')
+      .required('Please confirm your password'),
+    agreeTerms: yup
+      .boolean()
+      .oneOf([true], 'You must agree to the Terms & Conditions'),
+  })
+  .required()
 
 const Register = () => {
-  const { register: registerAuth } = useAuth()
+  const { register: registerAuth, isAuthenticated } = useAuth()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
@@ -64,6 +66,12 @@ const Register = () => {
     },
   })
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/', { replace: true })
+    }
+  }, [isAuthenticated, navigate])
+
   const watchPassword = watch('password', '')
 
   const onSubmit = async (data) => {
@@ -76,20 +84,30 @@ const Register = () => {
         password: data.password,
       })
       toast.success('Welcome to Zahara! Account created successfully.', { icon: '👑' })
-      navigate('/profile')
-    } catch {
-      toast.error('Registration failed. Please try again.')
+      navigate('/')
+    } catch (err) {
+      toast.error(err.message || 'Registration failed. Please try again.')
     } finally {
       setLoading(false)
     }
   }
 
-  const handleSocialClick = (provider) => {
+  const handleSocialClick = async (provider) => {
+    setLoading(true)
     toast.success(`Signing up with ${provider}...`, { icon: '✨' })
-    setTimeout(() => {
-      registerAuth({ name: 'Zahara Client', email: 'client@zahara.com' })
-      navigate('/profile')
-    }, 1000)
+    try {
+      await registerAuth({
+        name: 'Zahara Client',
+        email: `client_${Date.now()}@zahara.com`,
+        phone: '+91 98765 43210',
+        password: 'password123',
+      })
+      navigate('/')
+    } catch (err) {
+      toast.error(err.message || 'Social registration failed.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -180,7 +198,7 @@ const Register = () => {
           )}
         </div>
 
-        {/* Register Button (Gold Gradient) */}
+        {/* Register Button */}
         <Button type="submit" variant="gold" loading={loading} className="w-full mt-3">
           Create Zahara Account
         </Button>
@@ -189,8 +207,8 @@ const Register = () => {
       {/* Social Register */}
       <SocialLogin
         onGoogle={() => handleSocialClick('Google')}
+        onFacebook={() => handleSocialClick('Facebook')}
         onApple={() => handleSocialClick('Apple')}
-        onPhone={() => navigate('/otp-verification')}
       />
 
       {/* Bottom Link to Login */}
