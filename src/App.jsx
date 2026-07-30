@@ -26,6 +26,8 @@ import Terms from './pages/Terms/Terms'
 import Privacy from './pages/Privacy/Privacy'
 import AdminLayout, { AdminDashboard, AdminProducts, AdminPlaceholder } from './pages/Admin/Admin'
 
+import ProtectedRoute from './components/ProtectedRoute'
+
 const AnimatedRoutes = () => {
   const location = useLocation()
   const isAdmin = location.pathname.startsWith('/admin')
@@ -75,12 +77,40 @@ const AnimatedRoutes = () => {
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/product/:slug" element={<ProductDetails />} />
-          <Route path="/wishlist" element={<Wishlist />} />
+          <Route
+            path="/wishlist"
+            element={
+              <ProtectedRoute>
+                <Wishlist />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/checkout"
+            element={
+              <ProtectedRoute>
+                <Checkout />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/booking-success" element={<BookingSuccess />} />
-          <Route path="/bookings" element={<Bookings />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route
+            path="/bookings"
+            element={
+              <ProtectedRoute>
+                <Bookings />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/faq" element={<FAQPage />} />

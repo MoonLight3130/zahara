@@ -1,24 +1,24 @@
-import { FiShield, FiRefreshCw, FiLock, FiTruck } from 'react-icons/fi'
+import { FiShield, FiZap, FiCheckCircle, FiTruck } from 'react-icons/fi'
 
 const FEATURES = [
-  { icon: FiShield, title: 'Premium Quality' },
-  { icon: FiRefreshCw, title: 'Flexible Rental' },
-  { icon: FiLock, title: 'Secure Payment' },
+  { icon: FiShield, title: 'Secure Login' },
+  { icon: FiZap, title: 'Fast Checkout' },
+  { icon: FiCheckCircle, title: 'Verified' },
   { icon: FiTruck, title: 'On-Time Delivery' },
 ]
 
 const FeatureSection = () => {
   return (
-    <div className="mt-8 pt-6 border-t border-white/10">
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+    <div className="mt-7 pt-6 border-t border-white/[0.08]">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
         {FEATURES.map((item, idx) => {
           const Icon = item.icon
           return (
-            <div key={idx} className="flex flex-col items-center group">
-              <div className="p-2.5 rounded-full bg-white/5 border border-[#D4AF37]/30 text-[#C49A3A] group-hover:bg-[#D4AF37]/20 group-hover:text-[#D4AF37] transition-all duration-300 mb-1.5">
-                <Icon size={16} />
+            <div key={idx} className="flex flex-col items-center gap-1.5 group cursor-default">
+              <div className="p-2 rounded-full bg-white/[0.04] border border-[#D4AF37]/20 text-[#C49A3A] group-hover:bg-[#D4AF37]/15 group-hover:text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-all duration-300">
+                <Icon size={14} />
               </div>
-              <span className="text-[11px] font-medium text-white/50 tracking-tight leading-tight">
+              <span className="text-[10px] font-medium text-white/40 group-hover:text-white/60 tracking-tight leading-tight transition-colors duration-300">
                 {item.title}
               </span>
             </div>

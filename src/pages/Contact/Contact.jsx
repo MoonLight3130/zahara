@@ -28,9 +28,9 @@ const Contact = () => {
             <AnimateOnScroll variant="slideLeft">
               <div className="space-y-6">
                 {[
-                  { icon: FiMail, label: 'Email', value: 'hello@zahara.com' },
-                  { icon: FiPhone, label: 'Phone', value: '+91 98765 43210' },
-                  { icon: FiMapPin, label: 'Address', value: 'Luxury Plaza, Bandra West, Mumbai 400050' },
+                  { icon: FiMail, label: 'Email', value: 'zahararentaljewellery@gmail.com' },
+                  { icon: FiPhone, label: 'Phone', value: '+91 9747133559' },
+                  { icon: FiMapPin, label: 'Address', value: 'SR building Lalaji junction near H&J mall Karunagappally, Kollam, Kerala' },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4 glass-card rounded-2xl p-6">
                     <item.icon className="text-gold shrink-0 mt-1" size={24} />

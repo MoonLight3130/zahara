@@ -18,7 +18,7 @@ const About = () => (
         <AnimateOnScroll>
           <div className="relative rounded-2xl overflow-hidden mb-12 luxury-shadow">
             <img
-              src="https://images.unsplash.com/photo-1611591437281-460bf8912146?w=1200&q=80"
+              src="https://res.cloudinary.com/nmrxsjhh/image/upload/f_auto,q_auto/681698900_17869412355611841_1763960844887710419_n_i9ibsp"
               alt="About Zahara"
               className="w-full h-80 object-cover"
               loading="lazy"
