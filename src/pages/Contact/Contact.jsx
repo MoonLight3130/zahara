@@ -18,10 +18,10 @@ const Contact = () => {
       <SEO title="Contact" />
       <div className="section-padding">
         <div className="max-w-6xl mx-auto">
-          <AnimateOnScroll className="text-center mb-16">
-            <p className="text-gold tracking-[0.3em] uppercase text-sm mb-3">Get In Touch</p>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p className="text-white/60 max-w-xl mx-auto">Have questions? Our concierge team is here to help you find the perfect piece.</p>
+          <AnimateOnScroll className="text-center mb-10 md:mb-16">
+            <p className="text-gold tracking-[0.3em] uppercase text-xs md:text-sm mb-3">Get In Touch</p>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">Contact Us</h1>
+            <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto">Have questions? Our concierge team is here to help you find the perfect piece.</p>
           </AnimateOnScroll>
 
           <div className="grid lg:grid-cols-2 gap-12">
@@ -44,7 +44,7 @@ const Contact = () => {
             </AnimateOnScroll>
 
             <AnimateOnScroll variant="slideRight">
-              <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8 border border-gold/20 space-y-4">
+              <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-6 md:p-8 border border-gold/20 space-y-4">
                 {['name', 'email', 'subject'].map((field) => (
                   <input
                     key={field}
@@ -53,7 +53,7 @@ const Contact = () => {
                     value={form[field]}
                     onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                     required
-                    className="w-full px-5 py-3.5 bg-black/50 border border-white/10 rounded-xl focus:outline-none focus:border-gold/50"
+                    className="w-full px-5 py-3.5 bg-black/50 border border-white/10 rounded-xl focus:outline-none focus:border-gold/50 text-base"
                   />
                 ))}
                 <textarea
@@ -62,7 +62,7 @@ const Contact = () => {
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   required
                   rows={5}
-                  className="w-full px-5 py-3.5 bg-black/50 border border-white/10 rounded-xl focus:outline-none focus:border-gold/50 resize-none"
+                  className="w-full px-5 py-3.5 bg-black/50 border border-white/10 rounded-xl focus:outline-none focus:border-gold/50 resize-none text-base"
                 />
                 <button type="submit" className="w-full py-4 gold-gradient text-black font-semibold rounded-xl flex items-center justify-center gap-2 hover:opacity-90">
                   Send Message <FiSend />

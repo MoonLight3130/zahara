@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const Hero = () => (
-  <section className="relative h-screen min-h-[600px] w-full">
+  <section className="relative h-[100dvh] min-h-[500px] sm:min-h-[600px] w-full overflow-hidden">
     <Swiper
       modules={[Autoplay, EffectFade, Pagination]}
       effect="fade"
@@ -93,19 +93,19 @@ md:rotate-[270deg]"
           transition={{ duration: 0.8, delay: 0.3 }}
           className="max-w-2xl"
         >
-          <p className="text-gold tracking-[0.4em] uppercase text-sm mb-4">ZAHARA Collections</p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+          <p className="text-gold tracking-[0.3em] uppercase text-xs sm:text-sm mb-3 sm:mb-4">ZAHARA Collections</p>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6">
             Luxury Jewellery
             <br />
             <span className="gold-text-gradient">For Every Occasion</span>
           </h1>
-          <p className="text-white/70 text-base md:text-lg leading-relaxed mb-8 max-w-lg">
+          <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">
             Premium jewellery rentals for weddings, engagements, parties, festivals, and photoshoots.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               to="/collections"
-              className="px-8 py-3.5 gold-gradient text-black font-semibold rounded-full hover:scale-105 transition-transform luxury-shadow"
+              className="px-6 py-3.5 sm:px-8 sm:py-4 min-h-[44px] inline-flex items-center justify-center gold-gradient text-black font-semibold rounded-full hover:scale-105 transition-transform luxury-shadow"
             >
               Explore Collection
             </Link>

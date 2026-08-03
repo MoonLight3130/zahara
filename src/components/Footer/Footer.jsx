@@ -55,20 +55,20 @@ const Footer = () => (
           <h4 className="text-gold font-semibold mb-6 tracking-wider uppercase text-sm">Contact</h4>
           <ul className="space-y-4">
             <li className="flex items-center gap-3 text-white/60 text-sm">
-              <FiMail className="text-gold" />
-              zahararentaljewellery@gmail.com
+              <FiMail className="text-gold shrink-0" />
+              <span className="break-all">zahararentaljewellery@gmail.com</span>
             </li>
             <li className="flex items-center gap-3 text-white/60 text-sm">
-              <FiPhone className="text-gold" />
-              +91 9747133559
+              <FiPhone className="text-gold shrink-0" />
+              <span>+91 9747133559</span>
             </li>
           </ul>
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-3 sm:gap-4 mt-6">
             {[FiInstagram, FiMail, FiPhone, FiMap].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
-                className="p-2.5 rounded-full border border-gold/30 text-gold hover:bg-gold hover:text-black transition-all"
+                className="p-3 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full border border-gold/30 text-gold hover:bg-gold hover:text-black transition-all"
                 aria-label="Social link"
               >
                 <Icon size={18} />

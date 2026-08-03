@@ -20,7 +20,7 @@ const PasswordField = forwardRef(
             ref={ref}
             type={showPassword ? 'text' : 'password'}
             placeholder={placeholder}
-            className={`w-full pl-11 pr-12 py-3.5 text-white text-sm rounded-xl border outline-none transition-all duration-300 placeholder:text-white/25 ${
+            className={`w-full pl-11 pr-12 py-3.5 text-white text-base rounded-xl border outline-none transition-all duration-300 placeholder:text-white/25 ${
               error
                 ? 'bg-red-500/5 border-red-500/60 focus:ring-2 focus:ring-red-500/20 focus:border-red-500'
                 : 'bg-white/[0.04] border-white/10 hover:border-white/20 focus:border-[#D4AF37]/70 focus:ring-2 focus:ring-[#D4AF37]/15 focus:bg-white/[0.06]'
@@ -31,7 +31,7 @@ const PasswordField = forwardRef(
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-4 text-white/30 hover:text-[#D4AF37] transition-colors duration-300 focus:outline-none z-10"
+            className="absolute right-2 touch-target text-white/30 hover:text-[#D4AF37] transition-colors duration-300 focus:outline-none z-10"
             aria-label={showPassword ? 'Hide password' : 'Show password'}
           >
             {showPassword ? <FiEyeOff size={17} /> : <FiEye size={17} />}
